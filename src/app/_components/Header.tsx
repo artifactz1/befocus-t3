@@ -4,7 +4,7 @@ import { useTimerStore } from "~/store/useTimerStore";
 import SessionsUI from "./sessionsUI/SessionsUI";
 
 function Timer() {
-  const { sessions, currentSession, isWorking } = useTimerStore();
+  const { sessions, currentSession, isWorking, isRunning } = useTimerStore();
 
   return (
     <div className="flex h-[15vh] w-full items-center justify-between px-[5vw]">
@@ -13,9 +13,8 @@ function Timer() {
         <SessionsUI />
       </div>
       <div className="flex flex-col items-center justify-center text-right">
-        <p className="text-xl font-medium">Session</p>
-        <p className="text-4xl font-light">
-          {currentSession} / {sessions}
+        <p className="font-regualr text-5xl">
+          {isRunning ? (isWorking ? "Focus" : "Break") : "BeFoucsed"}
         </p>
       </div>
     </div>
